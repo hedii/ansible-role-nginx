@@ -1,0 +1,27 @@
+---
+- name: Add nginx apt repo keys
+  apt_key:
+    url: "{{ https://nginx.org/keys/nginx_signing.key }}"
+    state: present
+
+- name: Add nginx apt repository
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items:
+    - "deb http://nginx.org/packages/{{ nginx_version_name }}/{{ nginx_os_type }}/ {{ nginx_os_name }} nginx"
+    - "deb-src http://nginx.org/packages/{{ nginx_version_name }}/{{ nginx_os_type }}/ {{ nginx_os_name }} nginx"
+
+- name: Ensure nginx is installed
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Ensure nginx base web directory exists
+  file:
+    path: "{{ nginx_base_web_directory }}"
+    state: directory
+
+- include_role:
+  name: geerlingguy.nginx
