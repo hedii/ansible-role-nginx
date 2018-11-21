@@ -1,7 +1,7 @@
 ---
 - name: Add nginx apt repo keys
   apt_key:
-    url: "{{ https://nginx.org/keys/nginx_signing.key }}"
+    url: https://nginx.org/keys/nginx_signing.key
     state: present
 
 - name: Add nginx apt repository
