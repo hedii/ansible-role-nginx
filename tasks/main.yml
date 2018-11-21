@@ -23,5 +23,6 @@
     path: "{{ nginx_base_web_directory }}"
     state: directory
 
-- include_role:
-  name: geerlingguy.nginx
+- name: Include geerlingguy.nginx role
+  include_role:
+    name: geerlingguy.nginx
