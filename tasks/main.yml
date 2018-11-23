@@ -26,3 +26,8 @@
 - name: Include geerlingguy.nginx role
   include_role:
     name: geerlingguy.nginx
+
+- name: Ensure nginx vhost directory exists
+  file:
+    path: /etc/nginx/sites-enabled
+    state: directory
