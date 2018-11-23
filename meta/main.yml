@@ -1,6 +1,7 @@
 ---
 dependencies:
-  - geerlingguy.nginx
+  - src: geerlingguy.nginx
+    version: 2.6.2
 galaxy_info:
   author: hedii
   description: ""
