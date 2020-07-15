@@ -9,8 +9,8 @@
     repo: "{{ item }}"
     state: present
   with_items:
-    - "deb http://nginx.org/packages/{{ nginx_version_name }}/{{ nginx_os_type }}/ {{ nginx_os_name }} nginx"
-    - "deb-src http://nginx.org/packages/{{ nginx_version_name }}/{{ nginx_os_type }}/ {{ nginx_os_name }} nginx"
+    - "deb http://nginx.org/packages/{{ nginx_version_name }}/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} nginx"
+    - "deb-src http://nginx.org/packages/{{ nginx_version_name }}/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} nginx"
 
 - name: Ensure nginx is installed
   apt:

@@ -1,5 +1,3 @@
 ---
 nginx_base_web_directory: "/var/www/html"
 nginx_version_name: "mainline"
-nginx_os_type: "debian"
-nginx_os_name: "stretch"
